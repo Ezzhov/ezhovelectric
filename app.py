@@ -60,6 +60,10 @@ def testcss():     #добавили новую функцию
 def testjs():     #добавили новую функцию
     return render_template('testjs.html')
 
+@app.route("/konfigen")
+def konfigen():     #добавили новую функцию
+    return render_template('konfigen.html')
+
 
 
 

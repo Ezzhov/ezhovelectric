@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор сертификатов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        select, button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #cert {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 14px;
+        }
+        #certificatesList {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+        }
+        .certificate {
+            padding: 10px;
+            background-color: #fff;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Генератор сертификатов</h1>
+
+    <!-- Выбор типа сертификата -->
+    <label for="certType">Выберите тип сертификата:</label>
+    <select id="certType">
+        <option value="ssl">SSL сертификат</option>
+        <option value="code-signing">Кодовый сертификат</option>
+        <option value="client">Клиентский сертификат</option>
+    </select>
+
+    <!-- Кнопка генерации сертификата -->
+    <button id="generateBtn">Сгенерировать сертификат</button>
+
+    <!-- Отображение сгенерированного сертификата -->
+    <div id="cert" style="display: none;"></div>
+
+    <!-- Список выданных сертификатов -->
+    <div id="certificatesList">
+        <h2>Список выданных сертификатов:</h2>
+        <div id="certificates"></div>
+    </div>
+</div>
+
+<script>
+    // Получение списка сертификатов
+    function getCertificates() {
+        fetch('http://localhost:5000/certificates', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const certificatesList = document.getElementById("certificates");
+            certificatesList.innerHTML = '';
+            
+            data.forEach(cert => {
+                const certificateDiv = document.createElement("div");
+                certificateDiv.classList.add("certificate");
+                certificateDiv.innerHTML = `
+                    <strong>Тип: </strong>${cert.cert_type} <br>
+                    <strong>Дата создания: </strong>${cert.created_at} <br>
+                    <pre>${cert.cert_data}</pre>
+                `;
+                certificatesList.appendChild(certificateDiv);
+            });
+        })
+        .catch(error => {
+            console.error('Ошибка:', error);
+        });
+    }
+
+    // Обработчик нажатия кнопки для генерации сертификата
+    document.getElementById("generateBtn").addEventListener("click", function() {
+        const certType = document.getElementById("certType").value;
+
+        fetch(`http://localhost:5000/generate-cert?type=${certType}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("cert").style.display = 'block';
+            document.getElementById("cert").textContent = data.cert;
+            getCertificates();  // Обновляем список сертификатов
+        })
+        .catch(error => {
+            console.error('Ошибка:', error);
+        });
+    });
+
+    // Загрузка списка сертификатов при запуске страницы
+    window.onload = function() {
+        getCertificates();
+    };
+</script>
+
+</body>
+</html>
