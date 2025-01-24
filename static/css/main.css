@@ -1,0 +1,45 @@
+/*HEADER*/
+header {position: sticky;
+    top:0;
+    padding:20px;
+    z-index: 1000;
+    background: #fff;
+    -webkit-box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 25px  rgba(0, 0, 0, 0.15);
+    margin-left: 10px; /* Добавляем отступ слева */
+    margin-right: 10px; /* Добавляем отступ справа */
+        }
+    
+
+    header .nav {
+        text-align: center; /* Центрировать текст внутри элемента с классом .nav */
+    }
+
+.page {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header__img {
+height: 105px;
+width: 90px;
+
+
+}
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    flex: 1 1 auto;
+}
+/*footer*/
+.footer__img {
+    height: 24px;
+    width: 24px;
+
+}
+
+/*row*/

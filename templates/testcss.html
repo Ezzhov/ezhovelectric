@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test</title>
+    <link rel="stylesheet" href="static/css/test.css">
+</head>
+<body>
+   <header>
+    <a href="/" style="font-size: 28px;"> <strong>Вернуться на главную страницу!</strong></a><br>
+    <a href="https://www.youtube.com/" target="_blank" style="font-size: 28px;">Если вы устали, ссылка на youtobe-чик</a><br>
+    <a href="mailto:ezzhov.e@gmail.com" target="_blank" style="font-size: 28px;">Моя почта: ezzhov.e@gmail.com</a><br>
+
+</header> 
+
+<aside class="nav">
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+    <li>Lorem, ipsum.</li>
+</aside>
+
+ <main>
+    <h1><b>Привет, это страница на которой я начал изучать курс по <abbr title="Hypertext Markup Language"> HTML! </abbr></b></h1>
+    <h2><i>В предыдущем заголовке я прописал абревеатуру в всплывающей подсказкой. Почему то стал поддчеркивать абревиатуру.</i></h2>
+    <h3><em>Добавил к заголовкам типы текста,добью до 6 заголовков.</em></h3>
+    <h4><u>Это кстати четвертый!</u></h4>
+    <h5><s>Обманул , хватит и пяти заголвоков, я его уже и не вижу если четсно.</s></h5>
+    <h6><span style="font-size: 36px;">Ладно вот шестой, в ручную выставил размер.</span></h6>
+    <p class="main_link">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam inventore aut cumque aliquam sapiente atque quo veritatis mollitia voluptate voluptas laborum harum reprehenderit eum nobis, vero qui autem dicta quaerat?</p>
+    <p class="text">Simple</p>
+    <p class="text" title="Some text"></p>
+
+
+<form name="user_input" action="" method="post">
+    
+    <label for="user_name">Простая форма</label>
+    <input class="input_name" type ="text" placeholder="Сюда можно что то написать, но работать ничего не будет" value="ЧТо то" maxlength="10" name="user_name" id="user_name"><br><br>
+
+    <label for="user_name">Форма для пароля</label>
+    <input type="password" name="user_password"><br><br>
+
+    <label for="user_name">Форма для емаил</label>
+    <input type="email" name="user_email"><br><br>
+
+    <label for="user_url">Форма для ссылок</label>
+    <input type="url" name="user_url"><br><br>
+
+    <label for="user_name">Форма для выбора цвета</label>
+    <input type="color" name="user_color"><br><br>
+
+    <label for="user_date">Форма для выбора даты</label>
+    <input type="date" name="user_date"><br><br>
+
+    <label for="user_time">Форма для выбора времени</label>
+    <input type="time" name="user_time"><br><br>
+
+    <label for="user_check">Галочка подтверждения</label>
+    <input type="checkbox" name="user_check"><br><br>
+
+    <label for="user_date">Выбор одного из нескольких</label>
+    <input type="radio" name="user_radio">
+    <input type="radio" name="user_radio">
+    <input type="radio" name="user_radio"><br><br>
+
+    <label for="user_file">Загрузка файла</label>
+    <input type="file" name="user_file"><br><br>
+
+    <label for="user_button">Кнопка без перезагрузки</label>
+    <input type="button" value="Просто конпка" name="user_button"><br><br>
+
+    <label for="user_submit">Кнопка с перезагрзузкой (Сохранить) </label>
+    <input type="submit" value="Сохранить" name="user_submit"><br><br>
+
+    <label for="user_reset">Кнопка очистить </label>
+    <input type="reset" value="Очистить" name="user_reset"><br><br>
+
+
+
+
+
+</form>
+
+<form name="user_textarea+button">
+<label for="user_placeholder">Форма для ввода текста</label>
+<textarea placeholder="Введите что то" maxlength="100" name="user_placeholder">
+</textarea><br><br>
+
+<button type="reset">Готово</button><br><br>
+</form>
+
+<form name="user_progres+details">
+<label for="user_select">Выбор марки авто</label>
+<select>
+<option disabled selected>------</option>
+<option >BMW</option>
+<option >AUDI</option>
+<option>NISSAN</option>
+<option>HUYNDAI</option>
+
+</select>
+
+
+</form>
+<progress max="100" value="90">
+    Прогрес бар
+</progress>
+
+<details>
+<summary>
+Подробнее
+</summary>
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam, odio molestiae. Natus a earum laudantium omnis deserunt libero, qui neque eaque suscipit quia laborum commodi id aperiam esse repudiandae nobis tenetur dolor dicta sunt corporis quasi eveniet, quibusdam reprehenderit. Cupiditate dolorum facilis unde mollitia ullam commodi accusamus autem vel aperiam?
+</details>
+</main>
+
+
+
+<footer>
+   <p>Понял вас. Если ваш HTML-редактор предоставляет команду lorem(), вероятно, это означает, что вы можете использовать эту команду для генерации "lorem ipsum" текста прямо в вашем коде.</p> 
+</footer>
+
+
+</body>
+</html>

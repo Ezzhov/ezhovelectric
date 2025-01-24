@@ -1,0 +1,19 @@
+{%extends 'base.html' %}
+
+{% block title%}
+Все записи
+{% endblock %}
+
+{%block content%}
+<h1>Все записи!</h1>
+{% for post in posts %}
+<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+    <div class="col-lg-6 px-0">
+      <h1 class="display-4 fst-italic">{{ post.title }}</h1>
+      <p class="lead my-3">{{ post.text }}</p>
+      
+    </div>
+    {% endfor %}
+  
+
+{%endblock%}
